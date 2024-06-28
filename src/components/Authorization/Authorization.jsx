@@ -1,6 +1,7 @@
 import Button from "../UI/Button/Button";
 import InputAuth from "../UI/InputAuth/InputAuth";
 import styles from "./Authorization.module.css";
+import { RightOutlined } from "@ant-design/icons";
 
 const Authorization = () => {
   return (
@@ -19,7 +20,12 @@ const Authorization = () => {
           <InputAuth placeholder={"Введите почту"} />
           <InputAuth placeholder={"Пароль"} />
           <div className={styles.FormBtn}>
-            <Button className={"BtnInfo"}>Войти</Button>
+            <Button className={"BtnInfo"} >
+              Войти
+              <span>
+                <RightOutlined className={styles.IconButton} />
+              </span>
+            </Button>
           </div>
         </form>
       </div>

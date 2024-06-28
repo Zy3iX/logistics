@@ -6,7 +6,7 @@
   align-self: center;
   width: 545px;
   height: 445px;
-  background-color: rgb(152, 160, 172);
+  background-color: rgba(247, 249, 252, 1);
   /* rgba(247, 249, 252, 1); */
   position: absolute;
   top: 50%;
@@ -59,4 +59,10 @@
 .FormBtn {
   display: flex;
   justify-content: center;
+}
+
+.IconButton{
+    margin-left: 6px;
+    vertical-align: middle;
+    font-size: 17px;
 }

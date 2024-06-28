@@ -1,4 +1,7 @@
 .Btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Open Sans";
   width: 134px;
   height: 44px;
