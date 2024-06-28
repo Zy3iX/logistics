@@ -21,7 +21,7 @@ const Authorization = () => {
           <InputAuth placeholder={"Пароль"} />
           <div className={styles.FormBtn}>
             <Button className={"BtnInfo"} >
-              Войти
+              Войтиd
               <span>
                 <RightOutlined className={styles.IconButton} />
               </span>
