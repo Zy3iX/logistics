@@ -1,0 +1,62 @@
+.AuthWindow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 545px;
+  height: 445px;
+  background-color: rgb(152, 160, 172);
+  /* rgba(247, 249, 252, 1); */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.FormControl {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.LogoContainer {
+  display: flex;
+  align-self: flex-end;
+  margin-top: 2rem;
+  margin-right: 2rem;
+}
+
+.LogoAuth {
+  width: 187px;
+  height: 42px;
+}
+
+.FormHeader {
+  font-size: 40px;
+  color: rgba(49, 53, 59, 1);
+  font-weight: 700;
+  margin: 0;
+  text-align: left;
+}
+
+.FormPar {
+  margin: 0;
+  margin-bottom: 30px;
+  text-align: left;
+  color: rgba(84, 83, 83, 1);
+}
+
+.FormBtn {
+  display: flex;
+  justify-content: center;
+}

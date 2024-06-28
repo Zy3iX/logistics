@@ -1,0 +1,12 @@
+.InputAuth {
+  font-family: "Open Sans";
+  font-weight: 500;
+  box-sizing: border-box;
+  width: 376px;
+  height: 44px;
+  background: #ffffff;
+  border: 1px solid #e4e9f2;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
