@@ -1,0 +1,30 @@
+.header {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  background: #fff;
+}
+
+.menu{
+    display: flex;
+    vertical-align: middle;
+    justify-content: flex-end;
+}
+
+.menu__username{
+    vertical-align: middle;
+    font-size:15px;
+    margin: 5px;
+}
+
+
+.searchbar__container{
+    display: flex;
+    margin: auto
+}
+
+.searchbar{
+    align-self: center;
+    width: 400px;
+}
