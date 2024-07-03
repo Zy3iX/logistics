@@ -1,6 +1,15 @@
 import styles from "./Navbar.module.css";
-import { Avatar, Dropdown, Layout, Menu, Space, Input, Image } from "antd";
-import { Outlet, Link } from "react-router-dom";
+import {
+  Avatar,
+  Dropdown,
+  Layout,
+  Menu,
+  Space,
+  Input,
+  Image,
+  ConfigProvider,
+} from "antd";
+import { Link } from "react-router-dom";
 import {
   BellOutlined,
   DownOutlined,
@@ -12,7 +21,7 @@ import {
 const { Header } = Layout;
 const { Search } = Input;
 
-const Navbar = (props) => {
+const Navbar = () => {
   const items = [
     {
       key: "1",
@@ -22,15 +31,7 @@ const Navbar = (props) => {
     {
       key: "2",
       icon: <LogoutOutlined />,
-      label: (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.aliyun.com"
-        >
-          Выйти
-        </a>
-      ),
+      label: <Link to={"/"}>Выйти</Link>,
       disabled: true,
     },
   ];
@@ -80,7 +81,6 @@ const Navbar = (props) => {
           </Menu>
         </Header>
       </Layout>
-      <Outlet />
     </>
   );
 };

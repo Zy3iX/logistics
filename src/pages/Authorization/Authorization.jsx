@@ -2,7 +2,8 @@
 import Button from "../../components/UI/Button/Button";
 import styles from "./Authorization.module.css";
 import { RightOutlined } from "@ant-design/icons";
-import { Typography, Form, Input } from "antd";
+import { Typography, Form, Input, Image } from "antd";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const { Text, Title } = Typography;
@@ -11,16 +12,19 @@ const Authorization = () => {
   const navigate = useNavigate();
   const handleForm = (values) => {
     console.log("Success: ", values);
-    navigate("/admin");
+    navigate("/");
   };
   return (
     <div className={styles.AuthWindow}>
       <div className={styles.LogoContainer}>
-        <img
-          className={styles.LogoAuth}
-          src="../../../src/assets/images/Logo.svg"
-          alt="Logo"
-        />
+        <Link to={"/"}>
+          <Image
+            preview={false}
+            className={styles.LogoAuth}
+            src="../../../src/assets/images/Logo.svg"
+            alt="Logo"
+          />
+        </Link>
       </div>
       <div className={styles.Form}>
         <Form

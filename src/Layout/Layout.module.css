@@ -1,0 +1,11 @@
+.content {
+  background-color: #fff;
+  border-radius: 30px;;
+  margin: 24px ;
+  padding: 24px;
+}
+
+.layout__content{
+    width: 100vh;
+    height: 100vh;
+}
