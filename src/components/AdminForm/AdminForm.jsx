@@ -82,8 +82,6 @@ const AdminForm = () => {
           placeholder={"Новый пароль"}
         />
       </Form.Item>
-
-
     </>
   );
 };

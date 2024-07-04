@@ -16,7 +16,7 @@ const AllRequests = () => {
     },
   };
 
-  const [role, setRole] = useState("Админ   ");
+  const [role, setRole] = useState("Админ");
 
   useEffect(() => {
     console.log(role);
