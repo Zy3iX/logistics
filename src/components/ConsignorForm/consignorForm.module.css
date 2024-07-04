@@ -14,3 +14,12 @@
   width: 400px;
   height: 40px;
 }
+
+.consignorForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.consignorFormSH {
+  display: flex;
+  flex-direction: column;
+}

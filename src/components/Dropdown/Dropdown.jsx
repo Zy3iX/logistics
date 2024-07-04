@@ -14,7 +14,7 @@ const Dropdown = (props) => {
         {props.items.map((item) => {
           return (
             <Link to={item.link} key={item.key}>
-              {item.title}
+              {item.label}
             </Link>
           );
         })}

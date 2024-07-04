@@ -1,14 +1,5 @@
 import styles from "./Navbar.module.css";
-import {
-  Avatar,
-  Dropdown,
-  Layout,
-  Menu,
-  Space,
-  Input,
-  Image,
-  ConfigProvider,
-} from "antd";
+import { Avatar, Dropdown, Layout, Menu, Space, Input, Image } from "antd";
 import { Link } from "react-router-dom";
 import {
   BellOutlined,
@@ -18,10 +9,12 @@ import {
   SettingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import { useState } from "react";
 const { Header } = Layout;
 const { Search } = Input;
 
 const Navbar = () => {
+
   const items = [
     {
       key: "1",
@@ -54,7 +47,7 @@ const Navbar = () => {
               <Search
                 allowClear
                 enterButton={<SearchOutlined />}
-                placeholder={"Search..."}
+                placeholder={"Найти..."}
                 className={styles.searchbar}
               />
             </div>
