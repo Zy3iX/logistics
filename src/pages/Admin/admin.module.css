@@ -1,0 +1,16 @@
+.formBtn {
+  background-color: black;
+  color: white;
+  padding: 10px 70px 10px 70px;
+  border-radius: 12px;
+}
+
+.selectRoles {
+  width: 120px;
+}
+
+.formInput {
+  padding: 8px;
+  width: 400px;
+  height: 40px;
+}
