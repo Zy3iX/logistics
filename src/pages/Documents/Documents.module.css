@@ -1,0 +1,40 @@
+.documents {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.documentTerms {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  max-width: 290px;
+}
+
+.documentText {
+  color: rgba(84, 83, 83, 1);
+}
+
+.bottomRightButton{
+    padding-top: 300px;
+    padding-left: 200px;
+}
+
+
+
+.Btn {
+  width: 150px;
+  height: 45px;
+}
+
+.addBtnTitleGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.documentGroup {
+  padding: 0 20px 0 20px;
+}

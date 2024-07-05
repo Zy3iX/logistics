@@ -1,0 +1,9 @@
+.documentsBtn {
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+}
+
+.btnContainer {
+    margin-top: 40px;
+}

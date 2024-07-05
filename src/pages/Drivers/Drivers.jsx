@@ -26,6 +26,7 @@ const Drivers = () => {
     <div>
       <div className={styles.radioDrivers}>
         <Radio.Group
+        defaultValue={"all"}
           options={options}
           optionType="button"
           buttonStyle="solid"
