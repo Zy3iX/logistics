@@ -52,8 +52,8 @@ const Documents = () => {
             </Title>
             <Text>
               <ul>
-                {data.map((item) => {
-                  return <li>{item}</li>;
+                {data.map((item, i) => {
+                  return <li key={i}>{item}</li>;
                 })}
               </ul>
             </Text>
