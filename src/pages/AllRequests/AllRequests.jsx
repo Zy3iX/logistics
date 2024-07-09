@@ -1,11 +1,36 @@
-import { Table } from "antd";
+import { Button, Radio, Table } from "antd";
 import styles from "./AllRequests.module.css";
 import { columns } from "./data.jsx";
 import { Link } from "react-router-dom";
+import { PlusOutlined } from "@ant-design/icons";
 
 const AllRequests = () => {
+  const options = [
+    {
+      label: "Активный",
+      value: "active",
+    },
+    {
+      label: "Неактивный",
+      value: "notactive",
+    },
+  ];
+
   return (
     <div className={styles.tableRequests}>
+      <div className={styles.btnGroup}>
+        <Radio.Group
+        className={styles.btnRadio}
+        defaultValue={"active"}
+          options={options}
+          optionType="button"
+          buttonStyle="solid"
+        />
+        <Button type="primary" className={styles.btnAdd}>
+          <PlusOutlined /> Добавить
+        </Button>
+      </div>
+
       <Table
         columns={[
           ...columns,
@@ -21,4 +46,4 @@ const AllRequests = () => {
   );
 };
 
-export default AllRequests
+export default AllRequests;
