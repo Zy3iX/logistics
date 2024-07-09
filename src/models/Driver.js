@@ -6,9 +6,10 @@ const driverSchema = new Schema({
   middleName: String,
   transport: String,
   status: String,
-  telephone: Number,
-  iin: Number,
-  _id: Number,
+  telephone: String,
+  iin: String,
+  id: String,
+  createdDate: String
 });
 
 export default model("Driver", driverSchema);

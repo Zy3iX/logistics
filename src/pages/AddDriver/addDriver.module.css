@@ -1,0 +1,7 @@
+.driverFormControl{
+    max-width: 35%;
+}
+
+.driverFormControl input{
+    height: 40px;
+}

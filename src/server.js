@@ -5,6 +5,7 @@ import cors from "cors";
 
 const app = express();
 app.use(cors());
+app.use(express.json())
 
 mongoose
   .connect("mongodb://localhost:27017/logistic", {
@@ -24,6 +25,18 @@ app.get("/api/drivers", async (req, res) => {
   } catch (e) {
     console.error("Ошибка при получении данных GET запроса. Ошибка: ", e);
     res.status(500).send("Ошибка сервера");
+  }
+});
+
+app.post("/api/drivers", async (req, res) => {
+  try {
+    const newDriver = new Driver(req.body);
+    console.log(req.body)
+    console.log(newDriver)
+    await newDriver.save();
+    res.status(201).send(newDriver);
+  } catch (e) {
+    console.error("Ошибка при отправке данных POST запроса. Ошибка: ", e);
   }
 });
 

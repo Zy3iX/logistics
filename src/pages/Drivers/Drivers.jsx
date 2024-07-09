@@ -1,8 +1,10 @@
-import { Radio } from "antd";
+import { Radio, Button } from "antd";
 import styles from "./Drivers.module.css";
 import { useState, useEffect } from "react";
 import DriversTable from "../../components/DriversTable/DriversTable";
 import axios from "axios";
+import { PlusOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const Drivers = () => {
   const [drivers, setDrivers] = useState([]);
@@ -26,6 +28,8 @@ const Drivers = () => {
           console.error("Ошибка:", error.message);
         }
       });
+
+      console.log(drivers)
   }, []);
 
   const options = [
@@ -34,7 +38,7 @@ const Drivers = () => {
       value: "all",
     },
     {
-      label: "Новый",
+      label: "Новые",
       value: "new",
     },
     {
@@ -56,6 +60,13 @@ const Drivers = () => {
           optionType="button"
           buttonStyle="solid"
         />
+
+        <Link to={"/add-driver"}>
+          <Button type={"primary"} className={styles.buttonDrivers}>
+            <PlusOutlined />
+            Добавить
+          </Button>
+        </Link>
       </div>
 
       <DriversTable onAccept={handleAccept} data={drivers} />
