@@ -3,17 +3,51 @@ import Button from "../../components/UI/Button/Button";
 import styles from "./Authorization.module.css";
 import { RightOutlined } from "@ant-design/icons";
 import { Typography, Form, Input, Image } from "antd";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { getCurrentAccount, onLogin } from "../../services/Auth";
+import { LocalStorageKeys } from "../../storage/localStorageKey";
 
 const { Text, Title } = Typography;
 
 const Authorization = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const handleForm = (values) => {
-    console.log("Success: ", values);
-    navigate("/");
+
+  const onFinish = (values) => {
+    setLoading(true);
+    onLogin(values)
+      .then((res) => {
+        if (res) {
+          if (res.data?.id_token) {
+            getCurrentAccount(res.data?.id_token).then((res) => {
+              location.reload();
+              localStorage.setItem(
+                LocalStorageKeys.ACCOUNT_DATA,
+                JSON.stringify(res.data)
+              );
+            });
+            localStorage.setItem(
+              LocalStorageKeys.LOGISTICS_ACCESS_TOKEN,
+              res.data?.id_token
+            );
+          }
+          notification.success({ message: "Добро пожаловать" });
+        }
+      })
+
+      .finally(() => {
+        setLoading(false);
+      });
   };
+
+  useEffect(() => {
+    if (localStorage.getItem(LocalStorageKeys.LOGISTICS_ACCESS_TOKEN)) {
+      navigate("/");
+    }
+  }, []);
+
   return (
     <div className={styles.AuthWindow}>
       <div className={styles.LogoContainer}>
@@ -28,34 +62,42 @@ const Authorization = () => {
       </div>
       <div className={styles.Form}>
         <Form
-          onFinish={handleForm}
+          onFinish={onFinish}
+          initialValues={{ remember: true }}
           className={styles.FormControl}
           name={"FormControl"}
+          autoComplete="off"
         >
           <Title className={styles.FormHeader}>Вход</Title>
           <Text type={"secondary"} className={styles.FormPar}>
             С возвращением!
           </Text>
           <Form.Item
-            name={"Email"}
-            rules={[{ required: true, message: "Введите свою почту!" }]}
+            name={"emile"} // emile - потому что на бэке так написали, как исправят поменяю на email
+            rules={[
+              { required: true, message: "Пожалуйста введите почту" },
+              {
+                type: "email",
+                message: "Неправильная почта",
+              },
+            ]}
           >
             <Input
               className={styles.InputAuth}
               placeholder={"Введите почту"}
-              name={"input[email]"}
-              required={true}
               type={"email"}
             />
           </Form.Item>
-          <Form.Item name={"Password"}>
+          <Form.Item
+            name={"password"}
+            validateFirst
+            rules={[{ required: true, message: "Пожалуйста введите пароль" }]}
+          >
             <Input.Password
               className={styles.InputAuth}
               placeholder={"Пароль"}
               showCount={true}
-              name={"input[password]"}
               type={"password"}
-              required={true}
             />
           </Form.Item>
           <Form.Item>

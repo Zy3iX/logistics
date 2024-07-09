@@ -1,33 +1,37 @@
 import styles from "./Navbar.module.css";
-import { Avatar, Dropdown, Layout, Menu, Space, Input, Image } from "antd";
-import { Link } from "react-router-dom";
 import {
-  BellOutlined,
-  DownOutlined,
-  LogoutOutlined,
-  SearchOutlined,
-  SettingOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+  Avatar,
+  Layout,
+  Menu,
+  Space,
+  Input,
+  Image,
+  notification,
+  Button,
+} from "antd";
+import { Link, useNavigate } from "react-router-dom";
+import { BellOutlined, SearchOutlined, UserOutlined } from "@ant-design/icons";
 import { useState } from "react";
+import { clearStorage } from "../../services/Auth";
+import { getCurrentUserData } from "../../helpers/currentUser";
 const { Header } = Layout;
 const { Search } = Input;
 
 const Navbar = () => {
+  const userData = getCurrentUserData();
+  const navigate = useNavigate();
 
-  const items = [
-    {
-      key: "1",
-      icon: <SettingOutlined />,
-      label: <Link to={"/admin"}>Admin panel</Link>,
-    },
-    {
-      key: "2",
-      icon: <LogoutOutlined />,
-      label: <Link to={"/"}>Выйти</Link>,
-      disabled: true,
-    },
-  ];
+  const logOutNotification = () => {
+    notification.info({
+      message: "Вы вышли из аккаунта",
+    });
+  };
+
+  const handleLogOut = () => {
+    clearStorage();
+    logOutNotification();
+    navigate(`/login`);
+  };
 
   return (
     <>
@@ -58,18 +62,10 @@ const Navbar = () => {
             </Menu.Item>
             <Menu.Item className={styles.menu__user}>
               <Avatar size={32} icon={<UserOutlined />} />
-              <Dropdown menu={{ items }}>
-                <Link
-                  to={"#"}
-                  onClick={(e) => e.preventDefault()}
-                  className={styles.profile}
-                >
-                  <Space>
-                    <span className={styles.menu__username}>User</span>
-                    <DownOutlined />
-                  </Space>
-                </Link>
-              </Dropdown>
+              <span>{`${userData?.firstName} ${userData?.lastName}`}</span>
+              <Button type="primary" danger onClick={handleLogOut}>
+                Выйти
+              </Button>
             </Menu.Item>
           </Menu>
         </Header>
