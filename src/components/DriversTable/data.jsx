@@ -1,3 +1,5 @@
+import {Button} from "antd"
+
 export const columns = () => [
   {
     title: "ID",
@@ -37,5 +39,21 @@ export const columns = () => [
     title: "Статус",
     dataIndex: "activated",
     render: (activated) => <p>{activated ? "Активный" : "Неактивный"}</p>,
+  },
+
+  {
+    title: "Действия",
+    render: (text, record) =>
+        <span>
+          {!record.activated && (
+            <Button
+              type="primary"
+              style={{ marginRight: "10px" }}
+            >
+              + Принять
+            </Button>
+          )}
+          {!record.activated && <Button>Отклонить</Button>}
+        </span>
   },
 ];

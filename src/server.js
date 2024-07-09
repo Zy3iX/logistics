@@ -2,10 +2,23 @@ import express from "express";
 import mongoose from "mongoose";
 import Driver from "./models/Driver.js";
 import cors from "cors";
+import Joi from "joi";
 
 const app = express();
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
+
+const driverSchema = Joi.object({
+  firstName: Joi.string().required(),
+  lastName: Joi.string().required(),
+  middleName: Joi.string().required(),
+  transport: Joi.string().required(),
+  telephone: Joi.string().pattern(/^\+7\d{10}$/),
+  iin: Joi.string().pattern(/^\d{12}$/),
+  id: Joi.string(),
+  createdDate: Joi.string(),
+  activated: Joi.boolean()
+});
 
 mongoose
   .connect("mongodb://localhost:27017/logistic", {
@@ -30,9 +43,11 @@ app.get("/api/drivers", async (req, res) => {
 
 app.post("/api/drivers", async (req, res) => {
   try {
+    const { error } = driverSchema.validate(req.body);
+    if (error) {
+      return res.status(400).send(`Ошибка в валидации данных. ${error}`);
+    }
     const newDriver = new Driver(req.body);
-    console.log(req.body)
-    console.log(newDriver)
     await newDriver.save();
     res.status(201).send(newDriver);
   } catch (e) {

@@ -2,10 +2,13 @@ import { Button, Form, Input, Typography } from "antd";
 import styles from "./addDriver.module.css";
 import { PlusOutlined } from "@ant-design/icons";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
 
 const AddDriver = () => {
+  const navigate = useNavigate();
+
   const formatDate = (date) => {
     let day = date.getDate();
     let month = date.getMonth() + 1;
@@ -36,6 +39,7 @@ const AddDriver = () => {
       console.log(newDriver);
       await axios.post("http://localhost:4000/api/drivers", newDriver);
       console.log("Водитель добавлен успешно!");
+      navigate("/drivers  ");
     } catch (e) {
       console.log("Ошибка при создании водителя [форма]. Ошибка: ", e);
     }
@@ -91,7 +95,8 @@ const AddDriver = () => {
           rules={[
             {
               required: true,
-              message: "Введите ИИН!",
+              message: "Введите правильный ИИН!",
+              pattern: /^\d{12}$/,
             },
           ]}
         >
@@ -103,7 +108,8 @@ const AddDriver = () => {
           rules={[
             {
               required: true,
-              message: "Введите телефон!",
+              message: "Введите правильный номер телефона!",
+              pattern: /^\+7\d{10}$/,
             },
           ]}
         >
