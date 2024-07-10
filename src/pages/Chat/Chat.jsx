@@ -1,7 +1,7 @@
-import styles from "./Chat.module.css";
+import styles from "./chat.module.css";
 
 const Chat = () => {
-  return <div>Chat page</div>;
+  return <div className={styles.Chat}>Chat page</div>;
 };
 
 export default Chat;

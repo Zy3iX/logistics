@@ -36,7 +36,7 @@ const Employees = () => {
     {
       title: "Действия",
       dataIndex: "actions",
-      key: "actions"
+      key: "actions",
     },
   ];
 
@@ -46,6 +46,7 @@ const Employees = () => {
         className={styles.tableInfo}
         columns={columns}
         dataSource={dataSource}
+        scroll={{ x: 1500 }}
       />
     </div>
   );

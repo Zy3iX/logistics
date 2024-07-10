@@ -10,6 +10,7 @@ import Chat from "./pages/Chat/Chat";
 import Analytics from "./pages/Analytics/Analytics";
 import Notifications from "./pages/Notifications/Notifications";
 import AllRequests from "./pages/AllRequests/AllRequests";
+import AddDriver from "./pages/AddDriver/AddDriver";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path={"/"} element={<AllRequests />} />
           <Route path="/admin" element={<Admin />} />
           <Route path={"/drivers"} element={<Drivers />} />
+          <Route path={"/add-driver"} element={<AddDriver />} />
           <Route path={"/employees"} element={<Employees />} />
           <Route path={"/documents"} element={<Documents />} />
           <Route path={"/chat"} element={<Chat />} />

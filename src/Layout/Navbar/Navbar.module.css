@@ -1,21 +1,25 @@
 .header {
   width: 100%;
   background: #fff;
-  vertical-align: middle;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .menu {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+}
+
+.menu__user {
+  display: flex;
+  align-items: center;
 }
 
 .menu__username {
   font-size: 15px;
-  margin: 5px;
+  margin: 0 5px;
 }
 
 .searchbar__container {
@@ -25,6 +29,5 @@
 }
 
 .searchbar {
-  align-self: center;
   width: 400px;
 }

@@ -1,4 +1,4 @@
-import styles from "./Sidebar.module.css";
+import styles from "./sidebar.module.css";
 import { Layout, Menu, ConfigProvider } from "antd";
 import { Link } from "react-router-dom";
 import {
@@ -76,7 +76,7 @@ const Sidebar = () => {
             mode={"inline"}
             defaultSelectedKeys={["1"]}
             items={items}
-          ></Menu>
+           />
         </Sider>
       </ConfigProvider>
     </>
