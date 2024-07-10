@@ -1,5 +1,5 @@
 import styles from "./navbar.module.css";
-import { Avatar, Dropdown, Layout, Menu, Space, Input, Image } from "antd";
+import { Avatar, Button, Layout, Menu, Input, Image, notification } from "antd";
 import { Link } from "react-router-dom";
 import {
   BellOutlined,
@@ -9,7 +9,10 @@ import {
   SettingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { getCurrentUserData } from "../../helpers/currentUser";
+import { clearStorage } from "../../services/Auth";
 const { Header } = Layout;
 const { Search } = Input;
 
@@ -28,19 +31,6 @@ const Navbar = () => {
     logOutNotification();
     navigate(`/login`);
   };
-  const items = [
-    {
-      key: "1",
-      icon: <SettingOutlined />,
-      label: <Link to={"/admin"}>Admin panel</Link>,
-    },
-    {
-      key: "2",
-      icon: <LogoutOutlined />,
-      label: <Link to={"/"}>Выйти</Link>,
-      disabled: true,
-    },
-  ];
 
   return (
     <>
