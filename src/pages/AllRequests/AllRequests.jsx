@@ -1,5 +1,5 @@
 import { Button, Radio, Table } from "antd";
-import styles from "./AllRequests.module.css";
+import styles from "./allRequests.module.css";
 import { columns } from "./data.jsx";
 import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
@@ -9,10 +9,12 @@ const AllRequests = () => {
     {
       label: "Активный",
       value: "active",
+      key: "active",
     },
     {
       label: "Неактивный",
       value: "notactive",
+      key: "notactive",
     },
   ];
 
@@ -20,8 +22,8 @@ const AllRequests = () => {
     <div className={styles.tableRequests}>
       <div className={styles.btnGroup}>
         <Radio.Group
-        className={styles.btnRadio}
-        defaultValue={"active"}
+          className={styles.btnRadio}
+          defaultValue={"active"}
           options={options}
           optionType="button"
           buttonStyle="solid"

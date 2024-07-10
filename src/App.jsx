@@ -20,7 +20,7 @@ const App = () => {
           <Route path={"/"} element={<AllRequests />} />
           <Route path="/admin" element={<Admin />} />
           <Route path={"/drivers"} element={<Drivers />} />
-          <Route path={"add-driver"} element={<AddDriver />} />
+          <Route path={"/add-driver"} element={<AddDriver />} />
           <Route path={"/employees"} element={<Employees />} />
           <Route path={"/documents"} element={<Documents />} />
           <Route path={"/chat"} element={<Chat />} />

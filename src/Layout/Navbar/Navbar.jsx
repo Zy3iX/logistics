@@ -1,4 +1,4 @@
-import styles from "./Navbar.module.css";
+import styles from "./navbar.module.css";
 import { Avatar, Dropdown, Layout, Menu, Space, Input, Image } from "antd";
 import { Link } from "react-router-dom";
 import {
@@ -9,12 +9,10 @@ import {
   SettingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { useState } from "react";
 const { Header } = Layout;
 const { Search } = Input;
 
 const Navbar = () => {
-
   const items = [
     {
       key: "1",
@@ -29,49 +27,67 @@ const Navbar = () => {
     },
   ];
 
+  const menuItems = [
+    {
+      key: 1,
+      label: (
+        <Link to={"/notifications"}>
+          <BellOutlined />
+        </Link>
+      ),
+    },
+    {
+      key: 2,
+      className: styles.menu__user,
+      label: (
+        <>
+          <Avatar size={32} icon={<UserOutlined />} />
+          <Dropdown menu={{ items }}>
+            <Link
+              to={"#"}
+              onClick={(e) => e.preventDefault()}
+              className={styles.profile}
+            >
+              <Space>
+                <span className={styles.menu__username}>User</span>
+                <DownOutlined />
+              </Space>
+            </Link>
+          </Dropdown>
+        </>
+      ),
+    },
+  ];
+
   return (
     <>
       <Layout>
         <Header className={styles.header}>
-          <Menu theme="light" mode="horizontal" className={styles.menu}>
-            <div>
-              <Link to={"/"}>
-                <Image
-                  preview={false}
-                  width={150}
-                  src="../../../src/assets/images/Logo.svg"
-                />
-              </Link>
-            </div>
-            <div className={styles.searchbar__container}>
-              <Search
-                allowClear
-                enterButton={<SearchOutlined />}
-                placeholder={"Найти..."}
-                className={styles.searchbar}
-              />
-            </div>
-            <Menu.Item key={"notification"}>
-              <Link to={"/notifications"}>
-                <BellOutlined />
-              </Link>
-            </Menu.Item>
-            <Menu.Item className={styles.menu__user}>
-              <Avatar size={32} icon={<UserOutlined />} />
-              <Dropdown menu={{ items }}>
-                <Link
-                  to={"#"}
-                  onClick={(e) => e.preventDefault()}
-                  className={styles.profile}
-                >
-                  <Space>
-                    <span className={styles.menu__username}>User</span>
-                    <DownOutlined />
-                  </Space>
-                </Link>
-              </Dropdown>
-            </Menu.Item>
-          </Menu>
+          <Link to={"/"}>
+            <Image
+              preview={false}
+              width={150}
+              src="../../../src/assets/images/Logo.svg"
+            />
+          </Link>
+
+          <div className={styles.searchbar__container}>
+            <Search
+              allowClear
+              enterButton={<SearchOutlined />}
+              placeholder={"Найти..."}
+              className={styles.searchbar}
+            />
+          </div>
+          <Menu
+            theme="light"
+            style={{
+              minWidth: 0,
+            }}
+            mode="horizontal"
+            className={styles.menu}
+            items={menuItems}
+          />
         </Header>
       </Layout>
     </>

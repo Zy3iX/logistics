@@ -1,5 +1,5 @@
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
-import styles from "./Dropdown.module.css";
+import styles from "./dropdown.module.css";
 import { Avatar, Button } from "antd";
 import { Link } from "react-router-dom";
 

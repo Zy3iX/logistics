@@ -8,9 +8,6 @@ const DriversTable = ({ onAccept, data }) => {
       className={styles.columns}
       dataSource={data}
       columns={columns({ onAccept })}
-      onClick={(click) => {
-        console.log(click);
-      }}
       scroll={{ x: 1500 }}
     />
   );

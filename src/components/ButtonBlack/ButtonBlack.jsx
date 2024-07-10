@@ -1,7 +1,7 @@
-import styles from "./ButtonBlack.module.css";
+import styles from "./buttonBlack.module.css";
 import { ConfigProvider, Button } from "antd";
 
-const ButtonBlack = (props) => {
+const ButtonBlack = ({ size, children }) => {
   const theme = {
     token: {
       colorPrimary: "#000",
@@ -10,15 +10,13 @@ const ButtonBlack = (props) => {
       borderColorHover: "#000",
     },
   };
+
+
   return (
     <div className={styles.btnContainer}>
       <ConfigProvider theme={theme}>
-        <Button
-          size={props.size}
-          className={styles.documentsBtn}
-          htmlType="submit"
-        >
-          {props.children}
+        <Button size={size} className={styles.documentsBtn} htmlType="submit">
+          {children}
         </Button>
       </ConfigProvider>
     </div>

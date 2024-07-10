@@ -17,7 +17,8 @@ const driverSchema = Joi.object({
   iin: Joi.string().pattern(/^\d{12}$/),
   id: Joi.string(),
   createdDate: Joi.string(),
-  activated: Joi.boolean()
+  activated: Joi.boolean(),
+  key: Joi.string()
 });
 
 mongoose
@@ -28,6 +29,7 @@ mongoose
   .then(() => console.log("Подключение к базе данных успешно"))
   .catch((e) => {
     console.error("Ошибка подключения к базе данных. Ошибка: ", e);
+    // eslint-disable-next-line no-undef
     process.exit(1);
   });
 

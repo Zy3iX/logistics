@@ -9,7 +9,8 @@ const driverSchema = new Schema({
   telephone: String,
   iin: String,
   id: String,
-  createdDate: String
+  createdDate: String,
+  key: String
 });
 
 export default model("Driver", driverSchema);

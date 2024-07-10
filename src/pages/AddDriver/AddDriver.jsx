@@ -28,13 +28,13 @@ const AddDriver = () => {
   };
 
   const onFinish = async (values) => {
-    console.log(values);
     try {
       const newDriver = {
         ...values,
         id: Math.random() + "_" + new Date().valueOf(),
         activated: false,
         createdDate: formatDate(new Date()),
+        key: Math.random() + "_" + new Date().valueOf() + "_" + "key"
       };
       console.log(newDriver);
       await axios.post("http://localhost:4000/api/drivers", newDriver);
@@ -49,6 +49,7 @@ const AddDriver = () => {
     <div className={styles.addDriverForm}>
       <Title level={3}>Добавить водителя</Title>
       <Form
+      name={"addDriverFormControl"}
         layout="vertical"
         onFinish={onFinish}
         className={styles.driverFormControl}
@@ -130,7 +131,6 @@ const AddDriver = () => {
         <Button
           type="primary"
           htmlType="submit"
-          onClick={() => console.log("Добавлен новый водитель!")}
         >
           <PlusOutlined />
           Добавить

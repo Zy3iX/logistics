@@ -19,7 +19,6 @@ const Admin = () => {
   const [role, setRole] = useState("Админ");
 
   useEffect(() => {
-    console.log(role);
   });
 
   const handleSubmitForm = (values) => {
@@ -43,8 +42,8 @@ const Admin = () => {
               onChange={(val) => setRole(val)}
               defaultValue={role}
               options={[
-                { value: "Экспедитор", label: "Экспедитор" },
-                { value: "Админ", label: "Админ" },
+                { value: "Экспедитор", label: "Экспедитор", key: "expeditor" },
+                { value: "Админ", label: "Админ", key: "admin" },
               ]}
             />
           </div>
