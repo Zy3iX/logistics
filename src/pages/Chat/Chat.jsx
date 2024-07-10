@@ -1,4 +1,4 @@
-import styles from "./chat.module.css";
+import styles from "./Chat.module.css";
 
 const Chat = () => {
   return <div className={styles.Chat}>Chat page</div>;

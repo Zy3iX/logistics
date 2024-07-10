@@ -1,4 +1,4 @@
-import styles from "./navbar.module.css";
+import styles from "./Navbar.module.css";
 import { Avatar, Button, Layout, Menu, Input, Image, notification } from "antd";
 import { Link } from "react-router-dom";
 import {

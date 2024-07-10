@@ -1,5 +1,5 @@
 import Button from "../../components/UI/Button/Button";
-import styles from "./authorization.module.css";
+import styles from "./Authorization.module.css";
 import { RightOutlined } from "@ant-design/icons";
 import { Typography, Form, Input, Image } from "antd";
 import { useEffect, useState } from "react";

@@ -1,4 +1,4 @@
-import styles from "./adminForm.module.css";
+import styles from "./AdminForm.module.css";
 import { Form, Input } from "antd";
 
 const AdminForm = () => {

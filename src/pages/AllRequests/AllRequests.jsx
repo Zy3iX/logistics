@@ -1,5 +1,5 @@
 import { Button, Radio, Table } from "antd";
-import styles from "./allRequests.module.css";
+import styles from "./AllRequests.module.css";
 import { columns } from "./data.jsx";
 import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
