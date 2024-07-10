@@ -6,7 +6,7 @@
   align-self: center;
   min-width: 545px;
   min-height: 445px;
-  background-color:  rgba(247, 249, 252, 1);;
+  background-color: rgba(247, 249, 252, 1);
   /* rgba(247, 249, 252, 1); */
   position: absolute;
   top: 50%;
@@ -79,4 +79,3 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
