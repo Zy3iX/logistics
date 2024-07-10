@@ -1,4 +1,4 @@
-import styles from "./analytics.module.css";
+import styles from "./Analytics.module.css";
 
 const Analytics = () => {
   return <div className={styles.Analytics}>Analytics page</div>;

@@ -1,4 +1,4 @@
-import styles from "./sidebar.module.css";
+import styles from "./Sidebar.module.css";
 import { Layout, Menu, ConfigProvider } from "antd";
 import { Link } from "react-router-dom";
 import {

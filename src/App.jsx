@@ -10,6 +10,7 @@ import Chat from "./pages/Chat/Chat";
 import Analytics from "./pages/Analytics/Analytics";
 import Notifications from "./pages/Notifications/Notifications";
 import AllRequests from "./pages/AllRequests/AllRequests";
+import NewRequest from "./pages/NewRequest/NewRequest"
 import AddDriver from "./pages/AddDriver/AddDriver";
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
           <Route path={"/chat"} element={<Chat />} />
           <Route path={"/analytics"} element={<Analytics />} />
           <Route path={"/notifications"} element={<Notifications />} />
+          <Route path={"/new-request"} element={<NewRequest />} />
         </Route>
         <Route path={"/login"} element={<Authorization />} />
       </Routes>

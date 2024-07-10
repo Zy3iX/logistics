@@ -1,6 +1,6 @@
 import { PlusOutlined } from "@ant-design/icons";
 import UploadForm from "../../components/UploadForm/UploadForm";
-import styles from "./documents.module.css";
+import styles from "./Documents.module.css";
 import { Button, Typography } from "antd";
 import ButtonBlack from "../../components/ButtonBlack/ButtonBlack";
 

@@ -1,4 +1,4 @@
-import styles from "./buttonBlack.module.css";
+import styles from "./ButtonBlack.module.css";
 import { ConfigProvider, Button } from "antd";
 
 const ButtonBlack = ({ size, children }) => {
