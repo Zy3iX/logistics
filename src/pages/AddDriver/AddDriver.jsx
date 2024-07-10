@@ -39,7 +39,7 @@ const AddDriver = () => {
       console.log(newDriver);
       await axios.post("http://localhost:4000/api/drivers", newDriver);
       console.log("Водитель добавлен успешно!");
-      navigate("/drivers  ");
+      navigate("/drivers");
     } catch (e) {
       console.log("Ошибка при создании водителя [форма]. Ошибка: ", e);
     }
