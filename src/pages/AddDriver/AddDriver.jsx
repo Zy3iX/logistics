@@ -1,13 +1,10 @@
 import { Button, Form, Input, Typography } from "antd";
 import styles from "./addDriver.module.css";
 import { PlusOutlined } from "@ant-design/icons";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
 
 const AddDriver = () => {
-  const navigate = useNavigate();
 
   const formatDate = (date) => {
     let day = date.getDate();
@@ -28,21 +25,8 @@ const AddDriver = () => {
   };
 
   const onFinish = async (values) => {
-    try {
-      const newDriver = {
-        ...values,
-        id: Math.random() + "_" + new Date().valueOf(),
-        activated: false,
-        createdDate: formatDate(new Date()),
-        key: Math.random() + "_" + new Date().valueOf() + "_" + "key"
-      };
-      console.log(newDriver);
-      await axios.post("http://localhost:4000/api/drivers", newDriver);
-      console.log("Водитель добавлен успешно!");
-      navigate("/drivers");
-    } catch (e) {
-      console.log("Ошибка при создании водителя [форма]. Ошибка: ", e);
-    }
+    const driver = { ...values }
+   console.log("Данные водителя: ", {...driver, registrationDate: formatDate(new Date)})
   };
 
   return (
