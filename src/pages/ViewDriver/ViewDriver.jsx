@@ -16,11 +16,16 @@ const ViewDriver = () => {
         <h3 className={styles.drivername}>
           {driver.firstName} {driver.lastName}
         </h3>
-        <h5>{driver.createdDate}</h5>
+        <h5>Дата регистрации: {driver.createdDate}</h5>
         <p>Телефон: {driver.telephone}</p>
         <p>Транспорт: {driver.transport}</p>
-        <p style={driver.activated ? { color: "green" } : { color: "red" }}>
-          Статус: {driver.activated ? "Активирован" : "Не активирован"}
+        <p>
+          Статус:
+          <span
+            style={driver.activated ? { color: "green" } : { color: "red" }}
+          >
+            {driver.activated ? "Активирован" : "Не активирован"}
+          </span>
         </p>
         <Link className={styles.backto} to={"/drivers"}>
           Вернуться к водителям
