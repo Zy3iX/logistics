@@ -8,26 +8,26 @@ import { LocalStorageKeys } from "../storage/localStorageKey";
 import { useEffect } from "react";
 
 const Layout = () => {
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
+  // const { pathname } = useLocation();
+  // const navigate = useNavigate();
 
-  const checkIfTokenIsValid = () => {
-    const currentToken = localStorage.getItem(
-      LocalStorageKeys.LOGISTICS_ACCESS_TOKEN
-    );
-    return !!currentToken;
-  };
+  // const checkIfTokenIsValid = () => {
+  //   const currentToken = localStorage.getItem(
+  //     LocalStorageKeys.LOGISTICS_ACCESS_TOKEN
+  //   );
+  //   return !!currentToken;
+  // };
 
-  useEffect(() => {
-    if (!checkIfTokenIsValid()) {
-      navigate("/login");
-    }
-  }, [pathname, navigate]);
+  // useEffect(() => {
+  //   if (!checkIfTokenIsValid()) {
+  //     navigate("/login");
+  //   }
+  // }, [pathname, navigate]);
 
-  const currentPath = pathname;
+  // const currentPath = pathname;
   return (
     <div>
-      {checkIfTokenIsValid() && (
+      {/* {checkIfTokenIsValid() && ( */}
         <LayoutAntD className={styles.layout}>
           <Navbar />
           <LayoutAntD>
@@ -35,12 +35,12 @@ const Layout = () => {
             <LayoutAntD className={styles.layout__content}>
               <Content className={styles.content}>
                 <Outlet className={styles.outlet} />
-                {currentPath !== "/" && <div>!!!</div>}
+                {/* {currentPath !== "/" && <div>!!!</div>} */}
               </Content>
             </LayoutAntD>
           </LayoutAntD>
         </LayoutAntD>
-      )}
+      {/* )} */}
     </div>
   );
 };

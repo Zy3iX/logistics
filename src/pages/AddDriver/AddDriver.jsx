@@ -1,7 +1,6 @@
 import { Button, Form, Input, Typography } from "antd";
 import styles from "./addDriver.module.css";
 import { PlusOutlined } from "@ant-design/icons";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
@@ -31,13 +30,12 @@ const AddDriver = () => {
     try {
       const newDriver = {
         ...values,
-        id: Math.random() + "_" + new Date().valueOf(),
+        id: Math.floor(Math.random() * 100) + "_" + new Date().valueOf(),
         activated: false,
         createdDate: formatDate(new Date()),
-        key: Math.random() + "_" + new Date().valueOf() + "_" + "key"
+        key: Math.floor(Math.random() * 100) + "_" + new Date().valueOf() + "_" + "key"
       };
       console.log(newDriver);
-      await axios.post("http://localhost:4000/api/drivers", newDriver);
       console.log("Водитель добавлен успешно!");
       navigate("/drivers");
     } catch (e) {

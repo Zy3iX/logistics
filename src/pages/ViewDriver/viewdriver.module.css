@@ -1,0 +1,20 @@
+.viewdriver {
+  font-family: sans-serif;
+  border-radius: 15px;
+  box-shadow: 3px 1px 8px 1px rgba(0, 0, 0, 0.301);
+}
+
+.drivercard {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.drivername {
+  font-size: 25px;
+  margin: 15px 0px 0px;
+}
+
+.backto {
+  margin-bottom: 15px;
+}

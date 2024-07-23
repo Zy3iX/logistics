@@ -3,49 +3,46 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Radio, Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import axios from "axios";
 import DriversTable from "../../components/DriversTable/DriversTable";
 
 const Drivers = () => {
   const [drivers, setDrivers] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/api/drivers")
-      .then((res) => {
-        if (Array.isArray(res.data)) {
-          setDrivers(res.data);
-        } else {
-          console.error("Полученные данные не являются массивом: ", res.data);
-        }
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.error("Ошибка ответа сервера:", error.response.data);
-        } else if (error.request) {
-          console.error("Ошибка запроса:", error.request);
-        } else {
-          console.error("Ошибка:", error.message);
-        }
-      });
+    const driver = {
+      firstName: "Василий",
+      middleName: "Брежников",
+      lastName: "Держинский",
+      iin: "123456789123",
+      id: "9_1721731378822",
+      key: "9_1721731378822_key",
+      createdDate: "23.07.24",
+      activated: false,
+      telephone: "+77077531956",
+      transport: "Volvo Truck",
+    };
 
+    localStorage.setItem("driver", JSON.stringify(driver));
+    const driverLocalStorage = JSON.parse(localStorage.getItem("driver"));
+    setDrivers([driverLocalStorage]);
+    console.log(driverLocalStorage);
   }, []);
 
   const options = [
     {
       label: "Все",
       value: "all",
-      key: "all"
+      key: "all",
     },
     {
       label: "Новые",
       value: "new",
-      key: "new"
+      key: "new",
     },
     {
       label: "Активные",
       value: "active",
-      key: "active"
+      key: "active",
     },
   ];
 

@@ -1,4 +1,5 @@
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 
 export const columns = () => [
   {
@@ -60,6 +61,9 @@ export const columns = () => [
           </Button>
         )}
         {!record.activated && <Button>Отклонить</Button>}
+        <Link to={`/drivers/${record.id}`}>
+          <Button>Посмотреть</Button>
+        </Link>
       </span>
     ),
   },

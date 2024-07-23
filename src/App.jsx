@@ -10,8 +10,9 @@ import Chat from "./pages/Chat/Chat";
 import Analytics from "./pages/Analytics/Analytics";
 import Notifications from "./pages/Notifications/Notifications";
 import AllRequests from "./pages/AllRequests/AllRequests";
-import NewRequest from "./pages/NewRequest/NewRequest"
+import NewRequest from "./pages/NewRequest/NewRequest";
 import AddDriver from "./pages/AddDriver/AddDriver";
+import ViewDriver from "./pages/ViewDriver/ViewDriver";
 
 const App = () => {
   return (
@@ -20,7 +21,10 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path={"/"} element={<AllRequests />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path={"/drivers"} element={<Drivers />} />
+          <Route path={"/drivers"}>
+            <Route index element={<Drivers />} />
+            <Route path={":id"} element={<ViewDriver />} />
+          </Route>
           <Route path={"/add-driver"} element={<AddDriver />} />
           <Route path={"/employees"} element={<Employees />} />
           <Route path={"/documents"} element={<Documents />} />
