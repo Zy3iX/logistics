@@ -1,20 +1,11 @@
 import styles from "./Navbar.module.css";
-import { Avatar, Button, Layout, Menu, Input, Image, notification } from "antd";
+import { Avatar, Button, Layout, Image, notification, Badge } from "antd";
 import { Link } from "react-router-dom";
-import {
-  BellOutlined,
-  DownOutlined,
-  LogoutOutlined,
-  SearchOutlined,
-  SettingOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { BellOutlined, UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-
 import { getCurrentUserData } from "../../helpers/currentUser";
 import { clearStorage } from "../../services/Auth";
 const { Header } = Layout;
-const { Search } = Input;
 
 const Navbar = () => {
   const userData = getCurrentUserData();
@@ -36,37 +27,31 @@ const Navbar = () => {
     <>
       <Layout>
         <Header className={styles.header}>
-          <Menu theme="light" mode="horizontal" className={styles.menu}>
-            <div>
-              <Link to={"/"}>
-                <Image
-                  preview={false}
-                  width={150}
-                  src="../../../src/assets/images/Logo.svg"
-                />
-              </Link>
-            </div>
-            <div className={styles.searchbar__container}>
-              <Search
-                allowClear
-                enterButton={<SearchOutlined />}
-                placeholder={"Найти..."}
-                className={styles.searchbar}
+          <div className={styles.logo}>
+            <Link>
+              <Image
+                preview={false}
+                width={150}
+                src="../../../src/assets/images/Logo.svg"
               />
-            </div>
-            <Menu.Item key={"notification"}>
-              <Link to={"/notifications"}>
-                <BellOutlined />
-              </Link>
-            </Menu.Item>
-            <Menu.Item className={styles.menu__user}>
+            </Link>
+          </div>
+          <div className={styles.notifications}>
+            <Badge dot>
+              <BellOutlined />
+            </Badge>
+          </div>
+          <div className={styles.user__profile}>
+            <Link>
               <Avatar size={32} icon={<UserOutlined />} />
-              <span>{`${userData?.firstName} ${userData?.lastName}`}</span>
-              <Button type="primary" danger onClick={handleLogOut}>
+              <span
+                className={styles.user__data}
+              >{`${userData?.firstName} ${userData?.lastName}`}</span>
+              <Button type={"primary"} onClick={handleLogOut} danger>
                 Выйти
               </Button>
-            </Menu.Item>
-          </Menu>
+            </Link>
+          </div>
         </Header>
       </Layout>
     </>

@@ -3,31 +3,23 @@
   background: #fff;
   padding: 0 20px;
   display: flex;
+  vertical-align: middle;
   align-items: center;
   justify-content: space-between;
 }
 
-.menu {
-  display: flex;
-  align-items: center;
+.logo {
+  margin-right: auto;
 }
 
-.menu__user {
-  display: flex;
-  align-items: center;
+.notifications {
+  margin: 0 10px;
 }
 
-.menu__username {
-  font-size: 15px;
+.user__profile {
+  margin: 0 10px;
+}
+
+.user__data {
   margin: 0 5px;
-}
-
-.searchbar__container {
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-}
-
-.searchbar {
-  width: 400px;
 }
