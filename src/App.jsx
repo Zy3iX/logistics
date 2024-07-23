@@ -1,5 +1,5 @@
 import "./App.css";
-import Authorization from "../src/pages/Authorization/Authorization";
+// import Authorization from "../src/pages/Authorization/Authorization";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import Admin from "./pages/Admin/Admin";
@@ -29,7 +29,7 @@ const App = () => {
           <Route path={"/notifications"} element={<Notifications />} />
           <Route path={"/new-request"} element={<NewRequest />} />
         </Route>
-        <Route path={"/login"} element={<Authorization />} />
+        {/* <Route path={"/login"} element={<Authorization />} /> */}
       </Routes>
     </BrowserRouter>
   );
