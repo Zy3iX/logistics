@@ -7,8 +7,6 @@ import { PlusOutlined } from "@ant-design/icons";
 import backend from '../../apiUrl.json';
 import axios from 'axios';
 
-
-
 const AllRequests = () => {
   const options = [
     {
@@ -25,6 +23,15 @@ const AllRequests = () => {
 
   const [data, setData] = useState(null);
   const [prevData, setPrevData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,10 +79,11 @@ const AllRequests = () => {
           {
             title: "Действия",
             key: "actions",
-            render: () => <Link to={"/"}>Посмотреть</Link>,
+            render: (text, data) => <Link to={`/request/${data.id}`}>Посмотреть</Link>,
           },
         ]}
         dataSource={data}
+        loading={loading}
         scroll={{ x: 1500 }}
       />
     </div >

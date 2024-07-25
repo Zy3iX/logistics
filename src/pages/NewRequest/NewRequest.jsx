@@ -63,7 +63,7 @@ const NewRequest = () => {
                                 },
                             ]}
                         >
-                            <Input type='tel' maxLength={14} placeholder="Цена" />
+                            <Input maxLength={14} placeholder="Цена" />
                         </Form.Item>
                         <Form.Item>
                             <Select
@@ -135,7 +135,7 @@ const NewRequest = () => {
                             },
                         ]}
                     >
-                        <Input type='tel' maxLength={14} placeholder="Номер" />
+                        <Input maxLength={14} placeholder="Номер" />
                     </Form.Item>
                     <h4>Грузополучатель:</h4>
                     <Form.Item
@@ -170,7 +170,7 @@ const NewRequest = () => {
                             },
                         ]}
                     >
-                        <Input type='tel' maxLength={14} placeholder="Номер" />
+                        <Input maxLength={14} placeholder="Номер" />
                     </Form.Item>
                     <h3>Характеристика груза:</h3>
                     <Form.Item>
@@ -211,7 +211,7 @@ const NewRequest = () => {
                             },
                         ]}
                     >
-                        <Input type='nubmer' placeholder="Масса груза, т" />
+                        <Input placeholder="Масса груза, т" />
                     </Form.Item>
                     <Form.Item
                         name="cargoVolume"
@@ -222,7 +222,7 @@ const NewRequest = () => {
                             },
                         ]}
                     >
-                        <Input type='number' placeholder="Объем груза, м^3" />
+                        <Input placeholder="Объем груза, м^3" />
                     </Form.Item>
                     <Form.Item>
                         <Select
