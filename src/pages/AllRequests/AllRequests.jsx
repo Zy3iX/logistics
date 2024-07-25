@@ -1,8 +1,11 @@
+import React, { useState, useEffect } from 'react';
 import { Button, Radio, Table } from "antd";
 import styles from "./AllRequests.module.css";
 import { columns } from "./data.jsx";
 import { Link } from "react-router-dom";
 import { PlusOutlined } from "@ant-design/icons";
+import backend from '../../apiUrl.json';
+import axios from 'axios';
 
 const AllRequests = () => {
   const options = [
@@ -18,6 +21,39 @@ const AllRequests = () => {
     },
   ];
 
+  const [data, setData] = useState(null);
+  const [prevData, setPrevData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${backend.apiUrl}/AllRequests`);
+            const newData = response.data;
+
+            if (JSON.stringify(newData) !== JSON.stringify(prevData)) {
+                setData(newData);
+                setPrevData(newData);
+            }
+        } catch (error) {
+            console.error('Ошибка при запросе данных:', error);
+        }
+    };
+    fetchData();
+
+    const intervalId = setInterval(fetchData, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [prevData]);
+
   return (
     <div className={styles.tableRequests}>
       <div className={styles.btnGroup}>
@@ -28,9 +64,13 @@ const AllRequests = () => {
           optionType="button"
           buttonStyle="solid"
         />
-        <Button type="primary" className={styles.btnAdd}>
-          <PlusOutlined /> Добавить
-        </Button>
+
+        <Link to={"/new-request"}>
+          <Button type="primary" className={styles.btnAdd} >
+            <PlusOutlined /> Добавить
+          </Button>
+        </Link>
+
       </div>
 
       <Table
@@ -39,12 +79,14 @@ const AllRequests = () => {
           {
             title: "Действия",
             key: "actions",
-            render: () => <Link to={"/"}>Посмотреть</Link>,
+            render: (text, data) => <Link to={`/request/${data.id}`}>Посмотреть</Link>,
           },
         ]}
+        dataSource={data}
+        loading={loading}
         scroll={{ x: 1500 }}
       />
-    </div>
+    </div >
   );
 };
 

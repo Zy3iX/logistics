@@ -1,3 +1,4 @@
+// Columns.js
 export const columns = [
   {
     title: "ID",
@@ -5,7 +6,7 @@ export const columns = [
   },
   {
     title: "Дата создания заявки",
-    dataIndex: "createdDate",
+    dataIndex: "createdAt",
   },
   {
     title: "Статус",
@@ -13,14 +14,19 @@ export const columns = [
   },
   {
     title: "Тип перевозки",
-    dataIndex: "transportationType",
+    dataIndex: "transportationType1",
   },
   {
     title: "Вид транспорта",
-    dataIndex: ["typeOfVehicle", "type"],
+    dataIndex: "vehicleType",
   },
   {
-    title: "Планируемая дата загрузки - выгрузки",
+    title: "Планируемая дата загрузки",
+    dataIndex: "loadOnDate",
+  },
+  {
+    title: "Планируемая дата выгрузки",
+    dataIndex: "loadOffDate",
   },
   {
     title: "Тип заявки",
@@ -28,18 +34,18 @@ export const columns = [
   },
   {
     title: "Цена",
-    dataIndex: "purchaseCost",
+    dataIndex: "orderPrice",
   },
   {
     title: "Валюта",
-    dataIndex: "currencyType",
+    dataIndex: "orderCurrency",
   },
   {
     title: "Маршрут",
-    dataIndex: "addresses",
+    dataIndex: "route1",
   },
   {
     title: "Груз",
-    dataIndex: ["cargo", "name"],
+    dataIndex: "cargoName",
   },
 ];

@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import styles from './NewRequest.module.css';
+import { useNavigate } from "react-router-dom";
+import backend from '../../apiUrl.json';
+import axios from 'axios';
 
 const NewRequest = () => {
+    const navigate = useNavigate();
     const onFinish = (values) => {
+        axios.post(`${backend.apiUrl}/AllRequests`, values)
         console.log('Success:', values);
+        navigate("/");
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -34,7 +40,7 @@ const NewRequest = () => {
                             },
                         ]}
                     >
-                        <Input placeholder="Выбрать даты планируемой погрузки" />
+                        <Input type='date' placeholder="Выбрать даты планируемой погрузки" />
                     </Form.Item>
                     <Form.Item
                         name="loadOffDate"
@@ -45,7 +51,7 @@ const NewRequest = () => {
                             },
                         ]}
                     >
-                        <Input placeholder="Выбрать даты планируемой выгрузки" />
+                        <Input type='date' placeholder="Выбрать даты планируемой выгрузки" />
                     </Form.Item>
                     <span className={styles.flexRow}>
                         <Form.Item
@@ -57,11 +63,12 @@ const NewRequest = () => {
                                 },
                             ]}
                         >
-                            <Input placeholder="Цена" />
+                            <Input maxLength={14} placeholder="Цена" />
                         </Form.Item>
                         <Form.Item>
                             <Select
                                 placeholder="Валюта"
+                                name="orderCurrenncy"
                             >
                                 <Option value="tg">Тенге</Option>
                                 <Option value="rub">Рублей</Option>
@@ -71,6 +78,7 @@ const NewRequest = () => {
                     <Form.Item>
                         <Select
                             placeholder="Вид транспорта"
+                            name="vehicleType"
                         >
                             <Option value="truck">Грузовик с прицепом</Option>
                             <Option value="gazel">ГазЕЛЬ</Option>
@@ -79,6 +87,7 @@ const NewRequest = () => {
                     <Form.Item>
                         <Select
                             placeholder="Тип заявки"
+                            name="applicationType"
                         >
                             <Option value="type1">Тип 1</Option>
                             <Option value="type2">Тип 2</Option>
@@ -87,6 +96,7 @@ const NewRequest = () => {
                     <Form.Item>
                         <Select
                             placeholder="Условия оплаты"
+                            name="paymentConditions"
                         >
                             <Option value="condition1">Условие 1</Option>
                             <Option value="condition2">Условие 2</Option>
@@ -125,7 +135,7 @@ const NewRequest = () => {
                             },
                         ]}
                     >
-                        <Input placeholder="Номер" />
+                        <Input maxLength={14} placeholder="Номер" />
                     </Form.Item>
                     <h4>Грузополучатель:</h4>
                     <Form.Item
@@ -160,12 +170,13 @@ const NewRequest = () => {
                             },
                         ]}
                     >
-                        <Input placeholder="Номер" />
+                        <Input maxLength={14} placeholder="Номер" />
                     </Form.Item>
                     <h3>Характеристика груза:</h3>
                     <Form.Item>
                         <Select
                             placeholder="Тип перевозки"
+                            name="transportationType1"
                         >
                             <Option value="condition1">Условие 1</Option>
                             <Option value="condition2">Условие 2</Option>
@@ -174,6 +185,7 @@ const NewRequest = () => {
                     <Form.Item>
                         <Select
                             placeholder="Вид перевозки"
+                            name="transportationType2"
                         >
                             <Option value="condition1">Условие 1</Option>
                             <Option value="condition2">Условие 2</Option>
@@ -215,6 +227,7 @@ const NewRequest = () => {
                     <Form.Item>
                         <Select
                             placeholder="Вид упаковки"
+                            name="packageType"
                         >
                             <Option value="condition1">Условие 1</Option>
                             <Option value="condition2">Условие 2</Option>
@@ -257,6 +270,7 @@ const NewRequest = () => {
                         <Form.Item>
                             <Select
                                 placeholder="Валюта"
+                                name="cargoCurrency"
                             >
                                 <Option value="tg">Тенге</Option>
                                 <Option value="rub">Рублей</Option>
@@ -266,6 +280,7 @@ const NewRequest = () => {
                     <Form.Item>
                         <Select
                             placeholder="Способ погрузки"
+                            name="loadOnType"
                         >
                             <Option value="condition1">Условие 1</Option>
                             <Option value="condition2">Условие 2</Option>
@@ -289,7 +304,7 @@ const NewRequest = () => {
                         }}
                     >
                         <Button type="primary" htmlType="submit">
-                            Submit
+                            Отправить
                         </Button>
                     </Form.Item>
                 </div>

@@ -1,5 +1,5 @@
 import "./App.css";
-import Authorization from "../src/pages/Authorization/Authorization";
+// import Authorization from "../src/pages/Authorization/Authorization";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import Admin from "./pages/Admin/Admin";
@@ -10,8 +10,9 @@ import Chat from "./pages/Chat/Chat";
 import Analytics from "./pages/Analytics/Analytics";
 import Notifications from "./pages/Notifications/Notifications";
 import AllRequests from "./pages/AllRequests/AllRequests";
-import NewRequest from "./pages/NewRequest/NewRequest"
+import NewRequest from "./pages/NewRequest/NewRequest";
 import AddDriver from "./pages/AddDriver/AddDriver";
+import Request from "./pages/Request/Request";
 
 const App = () => {
   return (
@@ -28,8 +29,9 @@ const App = () => {
           <Route path={"/analytics"} element={<Analytics />} />
           <Route path={"/notifications"} element={<Notifications />} />
           <Route path={"/new-request"} element={<NewRequest />} />
+          <Route path={"/request/:id"} element={<Request />} />
         </Route>
-        <Route path={"/login"} element={<Authorization />} />
+        {/* <Route path={"/login"} element={<Authorization />} /> */}
       </Routes>
     </BrowserRouter>
   );
